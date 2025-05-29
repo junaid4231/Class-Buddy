@@ -4,7 +4,7 @@ import {View, Text, StyleSheet} from 'react-native';
 const ToDoScreen: React.FC = () => {
   return (
     <View style={styles.container}>
-      <Text>Subjects Screen</Text>
+      <Text>To Do Screen</Text>
     </View>
   );
 };
