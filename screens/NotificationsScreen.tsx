@@ -4,7 +4,7 @@ import {View, Text, StyleSheet} from 'react-native';
 const NotificationsScreen: React.FC = () => {
   return (
     <View style={styles.container}>
-      <Text>Subjects Screen</Text>
+      <Text>Notifications Screen</Text>
     </View>
   );
 };

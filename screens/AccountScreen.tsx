@@ -4,7 +4,7 @@ import {View, Text, StyleSheet} from 'react-native';
 const AccountScreen: React.FC = () => {
   return (
     <View style={styles.container}>
-      <Text>Subjects Screen</Text>
+      <Text>Account Screen</Text>
     </View>
   );
 };
