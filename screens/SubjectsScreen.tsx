@@ -66,34 +66,4 @@ const styles = StyleSheet.create({
     marginVertical: 12,
   },
   bodyContainer: {},
-  subjectCard: {
-    height: 140,
-    width: 310,
-    borderWidth: 1,
-    borderColor: '#1A6B7E',
-    borderRadius: 14,
-    padding: 12,
-    marginVertical: 10,
-  },
-  cardElevation: {
-    elevation: 5, // Android shadow
-    shadowColor: '#000', // iOS shadow color
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    backgroundColor: 'white', // Always set backgroundColor for shadow to appear
-    borderRadius: 10, // Optional, for rounded corners
-    padding: 15,
-  },
-
-  subHeadingTxt: {
-    fontSize: 18,
-    fontWeight: '600',
-  },
-  subDescriptionTxt: {
-    marginTop: 14,
-  },
 });
