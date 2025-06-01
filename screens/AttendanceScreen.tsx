@@ -19,7 +19,32 @@ const AttendanceScreen: React.FC = () => {
           <AttendanceCard
             title="MAD"
             subtitle="Next Class on Monday"
-            percentage="99"
+            percentage="99%"
+          />
+          <AttendanceCard
+            title="AI"
+            subtitle="Next Class on Wednesday"
+            percentage="100%"
+          />
+          <AttendanceCard
+            title="OS"
+            subtitle="Next Class on Tuesday"
+            percentage="79%"
+          />
+          <AttendanceCard
+            title="TOA"
+            subtitle="Next Class on Tuesday"
+            percentage="73%"
+          />
+          <AttendanceCard
+            title="FA"
+            subtitle="Next Class on Tuesday"
+            percentage="86%"
+          />
+          <AttendanceCard
+            title="MVC"
+            subtitle="Next Class on Tuesday"
+            percentage="74%"
           />
         </View>
       </ScrollView>
