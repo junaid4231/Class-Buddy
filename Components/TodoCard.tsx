@@ -37,6 +37,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     elevation: 5,
     flexDirection: 'row',
+    paddingTop: 14,
   },
   cardSection: {
     flexDirection: 'row',
