@@ -16,7 +16,7 @@ export default function TodoCard({text, date, category}: TodoCardProps) {
         <Text numberOfLines={1}>{text}</Text>
       </View>
       <View style={styles.cardSection}>
-        <Text style={styles.updateTime}>Due Date: {date}</Text>
+        <Text style={styles.date}>Due Date: {date}</Text>
         <Text style={styles.category}>• {category}</Text>
       </View>
     </View>
@@ -44,6 +44,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 8,
   },
-  updateTime: {color: 'grey'},
-  category: {color: 'grey'},
+  date: {color: 'green'},
+  category: {color: '#1A6B7E'},
 });

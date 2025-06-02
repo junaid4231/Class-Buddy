@@ -46,5 +46,5 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
   },
   updateTime: {color: 'grey'},
-  category: {color: 'grey'},
+  category: {color: '#1A6B7E'},
 });
