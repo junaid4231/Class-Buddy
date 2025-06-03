@@ -1,12 +1,12 @@
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import React from 'react';
 
-interface CustomCardProps {
+interface SubjectCardProps {
   title: string;
   description: string;
 }
 
-const CustomCard: React.FC<CustomCardProps> = ({title, description}) => {
+const SubjectCard: React.FC<SubjectCardProps> = ({title, description}) => {
   return (
     <TouchableOpacity>
       <View style={[styles.subjectCard, styles.cardElevation]}>
@@ -17,7 +17,7 @@ const CustomCard: React.FC<CustomCardProps> = ({title, description}) => {
   );
 };
 
-export default CustomCard;
+export default SubjectCard;
 
 const styles = StyleSheet.create({
   subjectCard: {

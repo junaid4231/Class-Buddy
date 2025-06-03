@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text, StyleSheet, SafeAreaView, ScrollView} from 'react-native';
-import CustomCard from '../Components/CustomCard';
+import SubjectCard from '../Components/SubjectCard';
 
 const SubjectsScreen: React.FC = () => {
   return (
@@ -14,24 +14,24 @@ const SubjectsScreen: React.FC = () => {
         </View>
 
         <View style={styles.bodyContainer}>
-          <CustomCard
+          <SubjectCard
             title="Mobile App"
             description="Mobile app studies with Prof. Akhzar Nazir"
           />
-          <CustomCard
+          <SubjectCard
             title="Operating Systems"
             description="Learn operating systems basic to advance with Prof.Naseer"
           />
-          <CustomCard
+          <SubjectCard
             title="Artificial Intelligence"
             description="Ride the world of Artificial Intelligence with Dr Wajahat Qazi"
           />
-          <CustomCard
+          <SubjectCard
             title="Financial Accounting"
             description="Handle Finances with Prof Naila Yousaf"
           />
 
-          <CustomCard
+          <SubjectCard
             title={'Theory of Autometa'}
             description={'Autometa world expolration with Dr. Ashfaq Ahmad'}
           />
