@@ -1,50 +1,136 @@
-import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import BouncyCheckBox from 'react-native-bouncy-checkbox';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 interface TodoCardProps {
   text: string;
   date: string;
   category: string;
+  onCheck: () => void;
+  isPendingDelete?: boolean;
 }
 
-export default function TodoCard({text, date, category}: TodoCardProps) {
+const categoryColors = [
+  '#FF6B6B',
+  '#4ECDC4',
+  '#45B7D1',
+  '#96CEB4',
+  '#FFD166',
+  '#6A0572',
+];
+
+const TodoCard: React.FC<TodoCardProps> = ({
+  text,
+  date,
+  category,
+  onCheck,
+  isPendingDelete = false,
+}) => {
   return (
-    <View style={styles.cardBody}>
-      <View style={styles.cardTxt}>
-        <BouncyCheckBox fillColor="#1A6B7E" />
-        <Text numberOfLines={1}>{text}</Text>
+    <View
+      style={[
+        styles.cardContainer,
+        isPendingDelete && styles.pendingDeleteCard,
+      ]}>
+      <View style={styles.leftContent}>
+        <TouchableOpacity
+          style={styles.checkbox}
+          onPress={onCheck}
+          disabled={isPendingDelete}>
+          <Icon
+            name={isPendingDelete ? 'check-box' : 'check-box-outline-blank'}
+            size={24}
+            color={isPendingDelete ? '#4CAF50' : '#666'}
+          />
+        </TouchableOpacity>
+
+        <View style={styles.textContainer}>
+          <Text
+            style={[styles.taskText, isPendingDelete && styles.completedText]}>
+            {text}
+          </Text>
+          <Text style={styles.dateText}>
+            <Text style={{color: '#1A6B7E'}}>Deadline: </Text>
+            {date}
+          </Text>
+        </View>
       </View>
-      <View style={styles.cardSection}>
-        <Text style={styles.date}>Due Date: {date}</Text>
-        <Text style={styles.category}>• {category}</Text>
+
+      <View style={[styles.categoryBadge, getCategoryColor(category)]}>
+        <Text style={styles.categoryText}>{category}</Text>
       </View>
     </View>
   );
-}
+};
+
+let colorCounter = 0;
+
+// This version preserves the switch but loops through colors
+const getCategoryColor = (_: string) => {
+  const color = categoryColors[colorCounter % categoryColors.length];
+  colorCounter++;
+
+  return {backgroundColor: color};
+};
+
+export default TodoCard;
 
 const styles = StyleSheet.create({
-  cardBody: {
-    width: '100%',
-    height: 90,
-    flex: 1,
+  cardContainer: {
+    backgroundColor: '#FFFFFF',
+    borderRadius: 12,
+    padding: 16,
     marginVertical: 8,
-  },
-  cardTxt: {
-    backgroundColor: 'white',
-    flex: 0.8,
-    padding: 10,
-    borderRadius: 8,
-    elevation: 5,
     flexDirection: 'row',
-    paddingTop: 14,
-  },
-  cardSection: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center',
-    paddingHorizontal: 8,
+    justifyContent: 'space-between',
+    elevation: 2,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
   },
-  date: {color: 'green'},
-  category: {color: '#1A6B7E'},
+  pendingDeleteCard: {
+    opacity: 0.6,
+    backgroundColor: '#F0F0F0',
+  },
+  leftContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flex: 1,
+  },
+  checkbox: {
+    marginRight: 12,
+    padding: 4,
+  },
+  textContainer: {
+    flex: 1,
+  },
+  taskText: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#333',
+    marginBottom: 4,
+  },
+  completedText: {
+    textDecorationLine: 'line-through',
+    color: '#999',
+  },
+  dateText: {
+    fontSize: 14,
+    color: '#666',
+  },
+  categoryBadge: {
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: 12,
+  },
+  categoryText: {
+    fontSize: 12,
+    fontWeight: 'bold',
+    color: '#FFFFFF',
+  },
 });
