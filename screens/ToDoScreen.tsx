@@ -78,7 +78,7 @@ const ToDoScreen: React.FC = () => {
     const timeout = setTimeout(() => {
       setTodos(prevTodos => prevTodos.filter(todo => todo.id !== todoId));
       hideUndoButton();
-    }, 3000);
+    }, 4000);
 
     setUndoTimeout(timeout);
   };
