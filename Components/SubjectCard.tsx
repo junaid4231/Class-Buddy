@@ -1,60 +1,6 @@
-// import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
-// import React from 'react';
-
-// interface SubjectCardProps {
-//   title: string;
-//   description: string;
-// }
-
-// const SubjectCard: React.FC<SubjectCardProps> = ({title, description}) => {
-//   return (
-//     <TouchableOpacity>
-//       <View style={[styles.subjectCard, styles.cardElevation]}>
-//         <Text style={styles.subHeadingTxt}>{title}</Text>
-//         <Text style={styles.subDescriptionTxt}>{description}</Text>
-//       </View>
-//     </TouchableOpacity>
-//   );
-// };
-
-// export default SubjectCard;
-
-// const styles = StyleSheet.create({
-//   subjectCard: {
-//     height: 140,
-//     width: 310,
-//     borderWidth: 1,
-//     borderColor: '#1A6B7E',
-//     borderRadius: 14,
-//     padding: 12,
-//     marginVertical: 10,
-//   },
-//   cardElevation: {
-//     elevation: 5, // Android shadow
-//     shadowColor: '#000', // iOS shadow color
-//     shadowOffset: {
-//       width: 0,
-//       height: 2,
-//     },
-//     shadowOpacity: 0.25,
-//     shadowRadius: 3.84,
-//     backgroundColor: 'white', // Always set backgroundColor for shadow to appear
-//     borderRadius: 10, // Optional, for rounded corners
-//     padding: 15,
-//   },
-
-//   subHeadingTxt: {
-//     fontSize: 18,
-//     fontWeight: '600',
-//   },
-//   subDescriptionTxt: {
-//     marginTop: 14,
-//   },
-// });
-
-//claude
 import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 interface SubjectCardProps {
   title: string;
@@ -69,29 +15,31 @@ const SubjectCard: React.FC<SubjectCardProps> = ({
   onPress,
   colorIndex,
 }) => {
-  const getSubjectColor = (index: number) => {
-    const colors = [
-      '#FF6B6B', // Red
-      '#4ECDC4', // Teal
-      '#45B7D1', // Blue
-      '#96CEB4', // Green
-      '#FECA57', // Yellow
-      '#A55EEA', // Purple
+  const getSubjectIcon = (index: number) => {
+    const icons = [
+      'laptop',
+      'storage',
+      'psychology',
+      'account-balance',
+      'book',
+      'settings',
     ];
-
-    return colors[index % colors.length];
+    return icons[index % icons.length];
   };
-
   return (
     <TouchableOpacity
-      style={[
-        styles.cardContainer,
-        {backgroundColor: getSubjectColor(colorIndex)},
-      ]}
+      style={styles.cardContainer}
       onPress={onPress}
-      activeOpacity={0.8}>
-      <Text style={styles.titleText}>{title}</Text>
-      <Text style={styles.descriptionText}>{description}</Text>
+      activeOpacity={0.7}>
+      <View style={styles.contentContainer}>
+        <View style={styles.textContainer}>
+          <Text style={styles.titleText}>{title}</Text>
+          <Text style={styles.descriptionText}>{description}</Text>
+        </View>
+        <View style={styles.iconContainer}>
+          <Icon name={getSubjectIcon(colorIndex)} size={28} color="#4A90A4" />
+        </View>
+      </View>
     </TouchableOpacity>
   );
 };
@@ -100,28 +48,44 @@ export default SubjectCard;
 
 const styles = StyleSheet.create({
   cardContainer: {
+    backgroundColor: '#FFFFFF',
     borderRadius: 12,
-    padding: 20,
     marginVertical: 8,
-    elevation: 3,
-    shadowColor: '#000',
+    marginHorizontal: 8,
+    elevation: 5,
+    shadowColor: '#1A6B7E',
     shadowOffset: {
-      width: 0,
-      height: 2,
+      width: 1,
+      height: 1,
     },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
+    shadowOpacity: 0.5,
+    shadowRadius: 2,
+  },
+  contentContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 16,
+  },
+  textContainer: {
+    flex: 1,
+    paddingRight: 12,
   },
   titleText: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#FFFFFF',
-    marginBottom: 8,
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#2C3E50',
+    marginBottom: 4,
   },
   descriptionText: {
-    fontSize: 14,
-    color: '#FFFFFF',
-    opacity: 0.9,
-    lineHeight: 20,
+    fontSize: 13,
+    color: '#7F8C8D',
+    lineHeight: 18,
+  },
+  iconContainer: {
+    backgroundColor: '#E8F4F8',
+    padding: 8,
+    borderRadius: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
