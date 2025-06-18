@@ -143,7 +143,6 @@ export default SubjectsScreen;
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
   },
   Container: {
     margin: 16,
