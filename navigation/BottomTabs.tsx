@@ -1,6 +1,6 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {NavigationContainer} from '@react-navigation/native';
+// import {NavigationContainer} from '@react-navigation/native';
 import SubjectsScreen from '../screens/SubjectsScreen';
 import AttendanceScreen from '../screens/AttendanceScreen';
 import ToDoScreen from '../screens/ToDoScreen';
